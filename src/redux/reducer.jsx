@@ -1,17 +1,32 @@
-export function ApiReducer(State = [], action) {
-    switch (action.type) {
-        case action.Loading:
-            {
+import { createSlice } from "@reduxjs/toolkit";
+import { getPosts } from "./api/api";
 
+const postSlice = createSlice({
+    name: "posts", 
+    initialState: {
+        posts: [],
+        loading: false,
+    },
+    extraReducers: {
+        [getPosts.pending]: (state, action) => { 
+            return{
+                ...state,
+                loading : true
+            } },
+        [getPosts.fulfilled]: (state, action) => { 
+            return{
+                ...state,
+                loading : false,
+                posts: action.payload,
             }
-        case action.Successfull:
-            {
+        },
 
-            }
-        case action.Error:
-            {
-
-            }
-
+        [getPosts.rejected]: (state, action) => {
+             return{
+                ...state,
+                loading: false,
+             } 
+            },
     }
-}
+})
+export default postSlice.reducer;

@@ -1,17 +1,11 @@
-import React from 'react';
+
 import './App.css';
-import Action, { GetApi } from './redux/action';
-import Store from './redux/store';
-
-
+import App1, { getPosts } from './redux/api/api';
 function App() {
-  return (<>  
-    {/* <Action/> */}
-    {/* <Store/> */}
-    <GetApi/>
-  </>
 
-  )
+return (<>
+    <App1/>
+    </>
+    )
 }
-
 export default App;
