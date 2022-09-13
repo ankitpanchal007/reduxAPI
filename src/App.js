@@ -1,6 +1,6 @@
 
 import './App.css';
-import App1, { getPosts ,getUser} from './redux/api/api';
+import App1 from './action/action';
 function App() { 
 
 return (<>

@@ -1,8 +1,7 @@
-
-import { createAsyncThunk } from "@reduxjs/toolkit";
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import {getPosts} from "../redux/api/apicmplt";
+import { getUser } from "../redux/api/apisearch";
 function App1() {
     const [data, setdata] = useState(0)
     const { posts, loading } = useSelector((state) => state.post);
@@ -21,7 +20,7 @@ function App1() {
         dispatch(getUser(e.target.value))
     }
     return (<>
-        <select className="dd" onChange={change}>
+        <select className="dd" onClick={change}>
             <option value='0'>select option</option>
             {
                 posts?.map((user) => (
@@ -34,18 +33,21 @@ function App1() {
         <table>
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
+                <td>   Name  : {user?.name}   </td>
                 </tr>
                 <tr>
-                    <td>{user?.name}</td>
-                    <td>{user?.username}</td>
-                    <td>{user?.address?.city}</td>
-                    <td>{user?.email}</td>
-
+                <td> Username : {user?.username}</td>
                 </tr>
+                <tr>
+                <td> City :{user?.address?.city}</td></tr>
+                <tr>
+                <td> Email : {user?.email}</td>
+                </tr>
+                <tr>
+                <td> Phone : {user?.phone}</td>
+                </tr>
+               
+                
             </thead>
         </table>
     </>
@@ -53,16 +55,3 @@ function App1() {
     )
 }
 export default App1
-export const getPosts = createAsyncThunk("posts/getPosts", async () => {
-    const resp = await fetch("https://jsonplaceholder.typicode.com/users").then((res) =>
-        res.json());
-    return resp;
-})
-
-export const getUser = createAsyncThunk("user/getUser", async (id) => {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`).then((res) => {
-        return res.json()
-    });
-    return response;
-})
-

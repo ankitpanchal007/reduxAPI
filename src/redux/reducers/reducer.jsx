@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getPosts } from "../api/api";
+import { getPosts } from "../api/apicmplt";
 
 const postSlice = createSlice({
     name: "posts",
