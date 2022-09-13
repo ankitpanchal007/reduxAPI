@@ -1,32 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getPosts } from "./api/api";
+import { getPosts } from "../api/api";
 
 const postSlice = createSlice({
-    name: "posts", 
+    name: "posts",
     initialState: {
         posts: [],
         loading: false,
     },
     extraReducers: {
-        [getPosts.pending]: (state, action) => { 
-            return{
+        [getPosts.pending]: (state) => {
+            return {
                 ...state,
-                loading : true
-            } },
-        [getPosts.fulfilled]: (state, action) => { 
-            return{
+                loading: true
+            }
+        },
+        [getPosts.fulfilled]: (state, action) => {
+            return {
                 ...state,
-                loading : false,
+                loading: false,
                 posts: action.payload,
             }
         },
-
-        [getPosts.rejected]: (state, action) => {
-             return{
+        [getPosts.rejected]: (state) => {
+            return {
                 ...state,
                 loading: false,
-             } 
-            },
+            }
+        },
     }
 })
 export default postSlice.reducer;

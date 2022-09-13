@@ -1,10 +1,11 @@
 
 import './App.css';
-import App1, { getPosts } from './redux/api/api';
-function App() {
+import App1, { getPosts ,getUser} from './redux/api/api';
+function App() { 
 
 return (<>
     <App1/>
+
     </>
     )
 }
