@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {getPosts} from "../redux/api/apicmplt";
+import { getPosts } from "../redux/api/apicmplt";
 import { getUser } from "../redux/api/apisearch";
 function App1() {
     const [data, setdata] = useState(0)
     const { posts, loading } = useSelector((state) => state.post);
-    const { user } = useSelector((state) => state.user)
+    const { user } = useSelector((state) => state.user);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getPosts())
@@ -23,31 +23,31 @@ function App1() {
         <select className="dd" onClick={change}>
             <option value='0'>select option</option>
             {
-                posts?.map((user) => (
-                    <option key={user.id} value={user.id}>
-                        {user.id}
+                posts ?.map((users) => (
+                    <option key={users.id} value={users.id}>
+                        {users.id}
                     </option>
                 ))
             }
         </select>
-        <table>
+        <table >
             <thead>
-                <tr>
-                <td>   Name  : {user?.name}   </td>
+                <tr >
+                    <td>   Name  : {user?.name}   </td>
                 </tr>
                 <tr>
-                <td> Username : {user?.username}</td>
+                    <td> Username : {user?.username}</td>
                 </tr>
                 <tr>
-                <td> City :{user?.address?.city}</td></tr>
+                    <td> City :{user?.address?.city}</td></tr>
                 <tr>
-                <td> Email : {user?.email}</td>
+                    <td> Email : {user?.email}</td>
                 </tr>
                 <tr>
-                <td> Phone : {user?.phone}</td>
+                    <td> Phone : {user?.phone}</td>
                 </tr>
-               
-                
+
+
             </thead>
         </table>
     </>

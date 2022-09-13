@@ -4,6 +4,7 @@ import { getUser } from "../api/apisearch";
 const userSlice = createSlice({
     name: "user",
     initialState: {
+       
         user: {},
     },
     extraReducers: {
@@ -11,6 +12,7 @@ const userSlice = createSlice({
    console.log(action.payload);            
             return {
                 ...state,
+                
                 user:action.payload,
             }
         },
