@@ -3,6 +3,8 @@ import axios from "axios";
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+
+
 function App1() {
     const [user, setUser] = useState([]);
     const { posts, loading } = useSelector((state) => state.post);
@@ -17,10 +19,9 @@ function App1() {
 
     const change = (e) => {
         axios.get("https://jsonplaceholder.typicode.com/users/" + e.target.value).
-            then((res) => console.log(res.data))
+            then((res) => console.log(res.data))            
     }
-
-    return (
+    return (<>
         <select className="dd" onChange={change}>
             <option value='0'>select option</option>
             {
@@ -30,8 +31,19 @@ function App1() {
                     </option>
                 ))
             }
-
         </select>
+        {/* <Table>
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+        </Table> */}
+        </>
+        
     )
 }
 export default App1
