@@ -11,6 +11,8 @@
 //   </div>
 //   )
 
+// import App1 from "../../action/action";
+
 
 // import { createAsyncThunk } from "@reduxjs/toolkit";
 // import axios from "axios";
@@ -66,3 +68,10 @@
 //         res.json());
 //     return resp;
 // })
+
+
+// function f()
+// {
+//     <button onClick={App1()}> (+)</button>
+// }
+// export default f;

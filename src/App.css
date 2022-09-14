@@ -36,4 +36,9 @@
     transform: rotate(360deg);
   }
 }
-table { background-color:beige; }
+table { background-color:beige;
+  align-self: center;
+
+ }
+
+
